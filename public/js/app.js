@@ -9,6 +9,12 @@
 * 2019-07-13
 ********************************/
 $(function () {  
+    var $dropdownItem = $('.dropdown-item')
+
+    $dropdownItem.on('click', function () {
+        console.log($(this).attr('data-id'))
+    })
+    
     /**
      * On-Click event to bring up modal to add 
      * Place Information
