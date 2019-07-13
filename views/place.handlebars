@@ -5,7 +5,7 @@
  * 
  * 2019-07-13
  ********************************/ --}}
- 
+
 <div class="text-center">
     <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="fa fa-fire"></span>Add</button>
 </div>
@@ -14,9 +14,16 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form>
-                <div class="form-group">
-                    <label for="category">Category</label>
-                    <input type="category" class="form-control" id="place-category">
+                <button class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" type="button"
+                    data-toggle="dropdown">Category</button>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item" id="dd-dental" data-id="dd-dental">Dental</a>
+                    <a href="#" class="dropdown-item" id="dd-dining" data-id="dd-dining">Dining</a>
+                    <a href="#" class="dropdown-item" id="dd-education" data-id="dd-education">Education</a>
+                    <a href="#" class="dropdown-item" id="dd-entertainment" data-id="dd-entertainment">Entertainment</a>
+                    <a href="#" class="dropdown-item" id="dd-legal" data-id="dd-legal">Legal</a>
+                    <a href="#" class="dropdown-item" id="dd-medical" data-id="dd-medical">Medical</a>
+                    <a href="#" class="dropdown-item" id="dd-personal" data-id="dd-personal">Personal Care</a>
                 </div>
                 <div class="form-group">
                     <label for="name">Name</label>
