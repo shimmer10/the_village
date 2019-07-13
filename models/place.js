@@ -1,3 +1,11 @@
+/********************************
+ * Place Model for The Village
+ * 
+ * @author The Village People
+ * 
+ * 2019-07-13
+ ********************************/
+
 module.exports = function (sequelize, DataTypes) {
     var Place = sequelize.define("Place", {
         category: {

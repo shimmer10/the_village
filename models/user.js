@@ -1,3 +1,11 @@
+/********************************
+ * User Model for The Village
+ * 
+ * @author The Village People
+ * 
+ * 2019-07-13
+ ********************************/
+
 module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define("User", {
         user_name: {
