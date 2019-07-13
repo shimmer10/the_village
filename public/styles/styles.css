@@ -1,3 +1,69 @@
-.list-group-item {
-  line-height: 2.5;
+/********************************
+ * Style Sheet The Village
+ * 
+ * @author The Village People
+ * 
+ * 2019-07-13
+ ********************************/
+ .navbar-brand {
+  width: 400px;
+  height: 90px;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 90px;
+  text-align: center;
+  text-decoration: none;
+  background: #6fa4a3;
+  color: #ffffff !important;
+  background-color: #6d9df0;
+}
+
+.carousel-item {
+  height: 500px;
+}
+
+.carousel-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 500px;
+}
+.carousel-caption-verticle {
+  font-size: 30px;
+  font-weight: 700;
+
+  width:200px;
+  z-index:10;
+  text-align:center;
+  top:50%;
+  left:80%;
+  bottom:auto;
+  -webkit-transform:translate(0, -50%);
+  -ms-transform:translate(0, -50%);
+  transform:translate(0, -50%);
+
+
+  color: black;
+}
+
+.carousel-caption-horizontal {
+  font-size: 30px;
+  font-weight: 700;
+  color: black;
+}
+
+footer {
+  padding: 30px 0;
+  clear: both;
+  font-size: 12px;
+  color: #ffffff !important;
+  color: #cccccc;
+  text-align: center;
+  background: #666666;
+  /*  bjt border-top: 8px solid #4aaaa5; */
+  border-top:10px solid #6d9df0;
+  border-bottom: 10px solid #6d9df0;
+  margin-top: 20px;
+  height: 50px;
 }

@@ -1,10 +1,22 @@
+/********************************
+ * apiRoutes for The Village
+ * 
+ * This file is used to for 
+ * our routes and their
+ * database calls rendring
+ * 
+ * @author The Village People
+ * 
+ * 2019-07-13
+ ********************************/
+
 var db = require("../models");
 
 module.exports = function (app) {
 
   // load index page
   app.get("/", function (req, res) {
-    res.render("index", { });
+    res.render("index", {});
   });
 
   // load by category

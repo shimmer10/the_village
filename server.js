@@ -1,3 +1,15 @@
+/********************************
+  * Server.js for The Village
+  * 
+  * This page is to allow us to
+  * connect to our server
+  * and load files/dependencies
+  * 
+  * @author The Village People
+  * 
+  * 2019-07-13
+  ********************************/
+
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
@@ -23,7 +35,6 @@ app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
 
@@ -34,8 +45,8 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
+db.sequelize.sync(syncOptions).then(function () {
+  app.listen(PORT, function () {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
