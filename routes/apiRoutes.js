@@ -1,45 +1,44 @@
 var db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
 
   // load index page
-  app.get("/", function(req, res) {
-    res.json("Welcome Page")
-      res.render("index", { });
+  app.get("/", function (req, res) {
+    res.render("index", { });
   });
 
   // load by category
-  app.get("/category/:category", function(req, res) {
+  app.get("/category/:category", function (req, res) {
     res.json("category: " + req.params.category);
-    // db.Place.findall({ where: { id: req.params.id } }).then(function(dbExample) {
-    //   res.render("example", {
-    //     example: dbExample
+    // db.Place.findall({ where: { category: req.params.category } }).then(function(result) {
+    //   res.render("search", {
+    //     example: result
     //   });
     // });
   });
 
   // load by username
-  app.get("/user/:id", function(req, res) {
+  app.get("/user/:id", function (req, res) {
     res.json("username: " + req.params.username);
-    // db.User.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-    //   res.render("example", {
-    //     example: dbExample
+    // db.User.findOne({ where: { id: req.params.id } }).then(function(resuolt) {
+    //   res.render("search", {
+    //     example: result
     //   });
     // });
   });
 
   // load by place
-  app.get("/place/:id", function(req, res) {
+  app.get("/place/:id", function (req, res) {
     res.json("place: " + req.params.place);
-    // db.Place.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-    //   res.render("example", {
-    //     example: dbExample
+    // db.Place.findOne({ where: { id: req.params.id } }).then(function(result) {
+    //   res.render("place", {
+    //     example: result
     //   });
     // });
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
+  app.get("*", function (req, res) {
     res.render("404");
   });
 
