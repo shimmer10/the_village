@@ -4,7 +4,7 @@ module.exports = {
     "development": {
       "username": process.env.DB_USER,
       "password": process.env.DB_PASS,
-      "database": "burger_db",
+      "database": "village_db",
       "host": process.env.DB_HOST,
       "dialect": "mysql",
       "port": 3306,
@@ -13,7 +13,7 @@ module.exports = {
     "test": {
       "username": process.env.DB_USER,
       "password": process.env.DB_PASS,
-      "database": "burger_db",
+      "database": "village_db",
       "host": process.env.DB_HOST,
       "dialect": "mysql",
       "port": 3306,
