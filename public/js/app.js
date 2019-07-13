@@ -21,8 +21,15 @@ $(function () {
      */
     $("#add-btn").on("click", function (event) {
         event.preventDefault();
-
         $("#place-modal").modal();
+    });
 
+    /**
+     * On-Click event to bring up modal to add 
+     * Review Information
+     */
+    $("#review-btn").on("click", function (event) {
+        event.preventDefault();
+        $("#review-modal").modal();
     });
 });
