@@ -55,6 +55,10 @@
 
 .modal-content {
   padding: 15px;
+  font-weight: bold;
+  /* background-image: url(../images/ep_naturalwhite.png); */
+  background-image: url(../images/textured_paper.png);
+  background-attachment: fixed;
 }
 
 /* Start CSS Styling for Star Rating */
