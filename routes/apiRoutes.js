@@ -18,6 +18,11 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     res.render("index", {});
   });
+  
+  // load search page
+  app.get("/search", function (req, res) {
+    res.render("search", {});
+  });
 
   // load by category
   app.get("/category/:category", function (req, res) {
