@@ -25,8 +25,28 @@ module.exports = function (app) {
   });
 
   // load place page -- TEMPORARY
-  app.get("/place", function (req, res) {
-    res.render("place", {});
+  app.get("/place/:id", function (req, res) {
+    db.Review.findAll({
+      where: {
+        PlaceId: req.params.id
+      }
+    }).then(function (result) {
+      var allReviews = {
+        reviews: result
+      }
+      res.render("place", allReviews);
+    });
+  });
+
+  // load review table
+  app.get("/review/:placeId", function (req, res) {
+    db.Review.findAll({
+      where: {
+        PlaceId: req.params.placeId
+      }
+    }).then(function (result) {
+      return res.json(result);
+    });
   });
 
 
