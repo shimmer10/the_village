@@ -24,6 +24,12 @@ module.exports = function (app) {
     res.render("search", {});
   });
 
+  // load place page -- TEMPORARY
+  app.get("/place", function (req, res) {
+    res.render("place", {});
+  });
+
+
   // load by category
   app.get("/category/:category", function (req, res) {
     res.json("category: " + req.params.category);
