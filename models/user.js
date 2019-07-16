@@ -15,7 +15,8 @@ module.exports = function (sequelize, DataTypes) {
         email_address: {
             type: DataTypes.STRING,
             allowNull: false,
-            isEmail: true
+            isEmail: true,
+            unique: true
         }
     });
 

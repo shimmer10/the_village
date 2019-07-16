@@ -18,7 +18,7 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     res.render("index", {});
   });
-  
+
   // load search page
   app.get("/search", function (req, res) {
     res.render("search", {});
@@ -62,6 +62,7 @@ module.exports = function (app) {
   // create place
   app.post("/place", function (req, res) {
     req.json("place added");
+
     // var place = req.body;
 
     // db.Place.create({
@@ -85,14 +86,46 @@ module.exports = function (app) {
 
   // create user
   app.post("/user", function (req, res) {
-    req.json("user added");
-    // var user = req.body;
-
-    // db.User.create({
-    //   exampleOne: user.exampleOne
-    // }).then(function (result) {
-    //   res.redirect('back');
-    // });
+    // these are possible responses to return to the front end
+    var dupResponse = "duplicate email";  // email is already in the database for a different use
+    var okResponse = "ok";                // user created successfully
+    var alreadyRegResponse = "already registered"; // user already in database
+    // determine if user already exists:
+    db.User.count({
+      where: {
+        user_name: req.body.username,
+        email_address: req.body.email,
+      }
+    }).then(count => {
+      // if count is zero then this one is new.
+      // if it alredy exists then no need to do anything more to db
+      if (count === 0) {
+        db.User.create({
+          user_name: req.body.username,
+          email_address: req.body.email,
+        }).then(function (dbUserCreateResult) {
+          res.status(200).end(okResponse);
+        })
+          .catch(function (err) {
+            // Whenever a validation or flag fails, an error is thrown
+            // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+            // this probably means someone is re-using an aleady existing email address
+            // email address is unique in the User table so this will throw an error
+            console.log(`
+            Error in post for User db:
+            Error Name: ${err.name}
+            Error Code: ${err.parent.code}
+            Error SQL Message: ${err.parent.sqlMessage}
+            failed to add new User
+            `);
+            res.status(200).end(dupResponse);
+          });
+      } else {
+        // User already exists just respond with ok
+        console.log("User " + req.body.username + " " + req.body.email + " already in Database");
+        res.status(200).end(alreadyRegResponse);
+      }
+    })
   });
 
   // delete place
