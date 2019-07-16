@@ -19,6 +19,12 @@
   background-color: #6d9df0;
 }
 
+.dropdown-menu {
+  width: 250px;
+  margin: 0 20px;
+  padding: 20px 20px;
+}
+
 .carousel-item {
   height: 500px;
 }
