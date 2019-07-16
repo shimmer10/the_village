@@ -9,7 +9,16 @@
 * 2019-07-13
 ********************************/
 // VARIABLES
-
+var newPlaceCategory = $("#place-category")
+var newPlaceName = $("#place-name");
+var newPlacePhone = $("#place-phone");
+var newPlaceStreet = $("#place-street");
+var newPlaceCity = $("#place-city");
+var newPlaceState = $("#place-state");
+var newPlaceZip = $("#place-zipcode");
+var newPlaceSummary = $("#place-summary");
+var newPlaceServices = $("#place-services");
+var newPlaceWebsite = $("#place-link");
 
 // OBJECTS
 var myUser = {
@@ -110,5 +119,38 @@ $(function () {
 
         myUser.register(username, email);
     });
+
+    /**
+     * On-Click event to submit the new place
+     * to the database
+     */
+    $("#place-submit").on("click", function (event) {
+        event.preventDefault();
+
+        var newPlace = {
+            category: newPlaceCategory.val().trim(),
+            place_name: newPlaceName.val().trim(),
+            street_address: newPlaceStreet.val().trim(),
+            city: newPlaceCity.val().trim(),
+            jurisdiction: newPlaceState.val().trim(),
+            zipcode: newPlaceZip.val().trim(),
+            phone_number: newPlacePhone.val().trim(),
+            summary: newPlaceSummary.val().trim(),
+            services: newPlaceServices.val().trim(),
+            external_link: newPlaceWebsite.val().trim()
+        };
+
+        // Send the Post request to village_db
+        $.ajax("/place", {
+            type: "POST",
+            data: newPlace
+        }).then(
+            function() {
+                console.log("created new place");
+                // Reload the place to get the updated list
+                location.reload();
+            }
+        )
+    })
 });
 
