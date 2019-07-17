@@ -155,11 +155,10 @@ $(function () {
 
     $("#review-submit").on("click", function (event) {
         event.preventDefault(); //TODO: Remove after functioning
-        
         var newReview = {
             rating: parseInt($("input[name='rating']:checked").val()),
             comments: newRatingComment.val().trim(),
-            PlaceId: 1, //need to not default this
+            PlaceId: $("#review-btn").val(),
             UserId: 1 //need to not default this
         }
 

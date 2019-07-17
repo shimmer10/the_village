@@ -53,6 +53,7 @@ module.exports = function (app) {
         res.render("place", allData);
       });
     });
+  });
 
   // load review table
   app.get("/review/:placeId", function (req, res) {
