@@ -21,7 +21,17 @@ module.exports = function (app) {
 
   // load search page
   app.get("/search", function (req, res) {
-    res.render("search", {});
+    db.Place.findAll({
+      attributes: ['category', 'place_name', 'city', 'jurisdiction']
+    }).then(function (dbPlaceFindallResult) {
+      res.render("search", { place: dbPlaceFindallResult });
+    })
+      .catch(function (err) {
+        // Whenever a validation or flag fails, an error is thrown
+        // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+        console.log(err);
+        res.status(200).end('not ok');
+      });
   });
 
   // load place page -- TEMPORARY
@@ -103,9 +113,9 @@ module.exports = function (app) {
     }).then(function (result) {
       res.redirect('back');
     })
-    .catch(function (err) {
-      console.log(err);
-    });
+      .catch(function (err) {
+        console.log(err);
+      });
   });
 
   // create review
