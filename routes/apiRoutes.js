@@ -95,14 +95,17 @@ module.exports = function (app) {
       street_address: place.street_address,
       city: place.city,
       jurisdiction: place.jurisdiction,
-      zipcode: place.zipcode,
+      zip_code: place.zip_code,
       phone_number: place.phone_number,
       summary: place.summary,
       services: place.services,
       external_link: place.external_link
     }).then(function (result) {
       res.redirect('back');
-    }).catch;
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
   });
 
   // create review

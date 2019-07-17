@@ -133,7 +133,7 @@ $(function () {
             street_address: newPlaceStreet.val().trim(),
             city: newPlaceCity.val().trim(),
             jurisdiction: newPlaceState.val().trim(),
-            zipcode: newPlaceZip.val().trim(),
+            zip_code: newPlaceZip.val().trim(),
             phone_number: newPlacePhone.val().trim(),
             summary: newPlaceSummary.val().trim(),
             services: newPlaceServices.val().trim(),
