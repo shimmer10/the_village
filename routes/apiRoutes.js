@@ -3,7 +3,7 @@
  * 
  * This file is used to for 
  * our routes and their
- * database calls rendring
+ * database calls rendering
  * 
  * @author The Village People
  * 
@@ -87,15 +87,25 @@ module.exports = function (app) {
 
   // create place
   app.post("/place", function (req, res) {
-    req.json("place added");
+    var place = req.body;
 
-    // var place = req.body;
-
-    // db.Place.create({
-    //   exampleOne: place.exampleOne
-    // }).then(function (result) {
-    //   res.redirect('back');
-    // });
+    db.Place.create({
+      category: place.category,
+      place_name: place.place_name,
+      street_address: place.street_address,
+      city: place.city,
+      jurisdiction: place.jurisdiction,
+      zip_code: place.zip_code,
+      phone_number: place.phone_number,
+      summary: place.summary,
+      services: place.services,
+      external_link: place.external_link
+    }).then(function (result) {
+      res.redirect('back');
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
   });
 
   // create review
