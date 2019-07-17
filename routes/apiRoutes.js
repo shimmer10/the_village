@@ -24,19 +24,24 @@ module.exports = function (app) {
     res.render("search", {});
   });
 
-  // load place page -- TEMPORARY
-  app.get("/place/:id", function (req, res) {
-    db.Review.findAll({
-      where: {
-        PlaceId: req.params.id
-      }
-    }).then(function (result) {
-      var allReviews = {
-        reviews: result
-      }
-      res.render("place", allReviews);
-    });
+  app.get("/place", function (req, res) {
+    res.render("place", {});
   });
+  // // load place page -- TEMPORARY
+  // app.get("/place/:id", function (req, res) {
+  //   db.Review.findAll({
+  //     where: {
+  //       PlaceId: req.params.id
+  //     }
+  //   }).then(function (result) {
+  //     var allReviews = {
+  //       reviews: result
+  //     }
+  //     // console.log("reviews " + JSON.stringify(allReviews));
+  //     // res.send(allReviews);
+  //     res.render("place", allReviews);
+  //   });
+  // });
 
   // load review table
   app.get("/review/:placeId", function (req, res) {
@@ -65,16 +70,6 @@ module.exports = function (app) {
     res.json("username: " + req.params.username);
     // db.User.findOne({ where: { id: req.params.id } }).then(function(resuolt) {
     //   res.render("search", {
-    //     example: result
-    //   });
-    // });
-  });
-
-  // load by place
-  app.get("/place/:id", function (req, res) {
-    res.json("place: " + req.params.place);
-    // db.Place.findOne({ where: { id: req.params.id } }).then(function(result) {
-    //   res.render("place", {
     //     example: result
     //   });
     // });
@@ -110,14 +105,19 @@ module.exports = function (app) {
 
   // create review
   app.post("/review", function (req, res) {
-    req.json("review added");
-    // var review = req.body;
+    var review = req.body;
 
-    // db.Review.create({
-    //   exampleOne: review.exampleOne
-    // }).then(function (result) {
-    //   res.redirect('back');
-    // });
+    db.Review.create({
+      rating: review.rating,
+      comments: review.comments,
+      PlaceId: review.PlaceId,
+      UserId: review.UserId
+    }).then(function (result) {
+      res.redirect('back');
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
   });
 
   // create user
