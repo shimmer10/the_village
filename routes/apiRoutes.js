@@ -21,27 +21,39 @@ module.exports = function (app) {
 
   // load search page
   app.get("/search", function (req, res) {
-    res.render("search", {});
+    db.Place.findAll({
+      attributes: ['category', 'place_name', 'city', 'jurisdiction']
+    }).then(function (dbPlaceFindallResult) {
+      res.render("search", { place: dbPlaceFindallResult });
+    })
+      .catch(function (err) {
+        // Whenever a validation or flag fails, an error is thrown
+        // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+        console.log(err);
+        res.status(200).end('not ok');
+      });
   });
 
-  app.get("/place", function (req, res) {
-    res.render("place", {});
+  // load place page -- TEMPORARY
+  app.get("/place/:id", function (req, res) {
+    db.Place.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function (placeResult) {
+      db.Review.findAll({
+        where: {
+          PlaceId: req.params.id
+        }
+      }).then(function (reviewResult) {
+        var allData = {
+          place: placeResult,
+          reviews: reviewResult
+        }
+        res.render("place", allData);
+      });
+    });
   });
-  // // load place page -- TEMPORARY
-  // app.get("/place/:id", function (req, res) {
-  //   db.Review.findAll({
-  //     where: {
-  //       PlaceId: req.params.id
-  //     }
-  //   }).then(function (result) {
-  //     var allReviews = {
-  //       reviews: result
-  //     }
-  //     // console.log("reviews " + JSON.stringify(allReviews));
-  //     // res.send(allReviews);
-  //     res.render("place", allReviews);
-  //   });
-  // });
 
   // load review table
   app.get("/review/:placeId", function (req, res) {
@@ -98,9 +110,9 @@ module.exports = function (app) {
     }).then(function (result) {
       res.redirect('back');
     })
-    .catch(function (err) {
-      console.log(err);
-    });
+      .catch(function (err) {
+        console.log(err);
+      });
   });
 
   // create review
