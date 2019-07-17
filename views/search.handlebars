@@ -45,7 +45,7 @@
 </nav>
 
 <div class="container">
-    <div class="text-center">
+    <div class="text-center mb-4">
         <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="fa fa-fire"></span>Add</button>
     </div>
 
@@ -178,5 +178,27 @@
                 </form>
             </div>
         </div>
+    </div>
+    <div class='table-responsive'>
+        <table class="table table-striped stencil-font bigger-font" id="places-table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Category</th>
+                    <th scope="col">Place Name</th>
+                    <th scope="col">City</th>
+                    <th scope="col">State</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                {{#each place}}
+                <tr>
+                    <td>{{category}}</td>
+                    <td>{{place_name}}</td>
+                    <td>{{city}}</td>
+                    <td>{{jurisdiction}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
     </div>
 </div>
