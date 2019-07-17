@@ -27,20 +27,54 @@
     </ul>
   </div>
 </nav>
-<div class="text-center">
-  <button type="submit" class="btn btn-primary btn-md" id="review-btn"><span class="fa fa-fire"></span>Add
-    Review</button>
-</div>
 
-<div>
-  <ul>
-    {{#each reviews}}
-    <p>
-      {{this.comments}}
-    </p>
-    {{/each}}
-  </ul>
-</div>
+<section class="row">
+  <div class="col m6">
+    <div id="place-name">
+      <h1>
+        {{place.place_name}}
+      </h1>
+    </div>
+    <div id="place-address">
+      <h3>{{place.street_address}}</h3>
+      <h3>{{place.city}}, {{place.jurisdiction}} {{place.zip_code}}</h3>
+    </div>
+    <div id="place-phone">
+      <h3>{{place.phone_number}}</h3>
+    </div>
+    <div id="place-url">
+      <a href="{{place.external_link}}">{{place.external_link}}</a>
+    </div>
+    {{!-- <hr> --}}
+
+
+  </div>
+</section>
+
+<section class="row center">
+  <div class="col m12">
+    <div class="text-left">
+      <button type="submit" class="btn btn-primary btn-md mb-2" id="review-btn"><span class="fa fa-fire"></span>Add
+        Review</button>
+    </div>
+    <table class="table table-striped table-sm table-hover" id='review-table'>
+      <thead>
+        <tr id="header">
+          <th scope="col">Comments</th>
+          <th scope="col">Rating</th>
+        </tr>
+      </thead>
+      <tbody id="review-table-body">
+        {{#each reviews}}
+        <tr class="review-item table entry">
+          <td>{{this.comments}}</td>
+          <td>{{this.rating}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</section>
 
 <!-- Modal -->
 <div class="modal fade" role="dialog" id="review-modal">

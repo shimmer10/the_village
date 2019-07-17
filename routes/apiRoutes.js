@@ -24,17 +24,29 @@ module.exports = function (app) {
     res.render("search", {});
   });
 
+  // app.get("/place", function (req, res) {
+  //   res.render("place", {});
+  // });
+
+
   // load place page -- TEMPORARY
   app.get("/place/:id", function (req, res) {
-    db.Review.findAll({
+    db.Place.findOne({
       where: {
-        PlaceId: req.params.id
+        id: req.params.id
       }
-    }).then(function (result) {
-      var allReviews = {
-        reviews: result
-      }
-      res.render("place", allReviews);
+    }).then(function (placeResult) {
+      db.Review.findAll({
+        where: {
+          PlaceId: req.params.id
+        }
+      }).then(function (reviewResult) {
+        var allData = {
+          place: placeResult,
+          reviews: reviewResult
+        }
+        res.render("place", allData);
+      });
     });
   });
 
