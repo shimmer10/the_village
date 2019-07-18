@@ -156,6 +156,10 @@ $(function () {
         )
     });
 
+    /**
+     * On-Click event to submit a new review 
+     * to the database
+     */
     $("#review-submit").on("click", function (event) {
         event.preventDefault(); //TODO: Remove after functioning
         var newReview = {
@@ -177,5 +181,14 @@ $(function () {
             }
         )
     });
+
+    /**
+     * On-Click event to grab place information
+     * and open place page
+     */
+    $(".view-button").on("click", function (event) {
+        event.preventDefault();
+        var id = $(this).data("value")
+    })
 });
 

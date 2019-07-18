@@ -22,7 +22,7 @@ module.exports = function (app) {
   // load search page
   app.get("/search", function (req, res) {
     db.Place.findAll({
-      attributes: ['category', 'place_name', 'city', 'jurisdiction']
+      attributes: ['id', 'category', 'place_name', 'city', 'jurisdiction']
     }).then(function (dbPlaceFindallResult) {
       res.render("search", { place: dbPlaceFindallResult });
     })
