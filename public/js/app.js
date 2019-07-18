@@ -78,6 +78,7 @@ var myUser = {
 // run this code when we load the page
 $(function () {
     $('#review-table').DataTable();
+    $('#places-table').DataTable();
 
     var $dropdownItem = $('.dropdown-item');
 
