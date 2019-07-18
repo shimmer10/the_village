@@ -125,7 +125,6 @@ $(function () {
      * to the database
      */
     $("#place-submit").on("click", function (event) {
-        event.preventDefault();
 
         var newPlace = {
             category: newPlaceCategory.val().trim(),
@@ -151,6 +150,16 @@ $(function () {
                 location.reload();
             }
         )
+    })
+
+    /**
+     * On-Click event to grab place information
+     * and open place page
+     */
+    $(".table-row").on("click", function (event) {
+        event.preventDefault();
+
+        console.log("ID? " + $(".table #table-body .table-row").data("value"));
     })
 });
 
