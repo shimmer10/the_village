@@ -5,6 +5,9 @@
  * 
  * 2019-07-13
  ********************************/
+ body {
+  background: url("../images/light_honeycomb_@2X.png");
+}
  .navbar-brand {
   width: 400px;
   height: 90px;

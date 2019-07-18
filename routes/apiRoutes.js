@@ -108,7 +108,7 @@ module.exports = function (app) {
       services: place.services,
       external_link: place.external_link
     }).then(function (result) {
-      res.redirect('back');
+      res.redirect('/search');
     })
       .catch(function (err) {
         console.log(err);
