@@ -34,11 +34,6 @@ module.exports = function (app) {
       });
   });
 
-  // app.get("/place", function (req, res) {
-  //   res.render("place", {});
-  // });
-
-
   // load place page -- TEMPORARY
   app.get("/place/:id", function (req, res) {
     db.Place.findOne({
@@ -92,16 +87,6 @@ module.exports = function (app) {
     // });
   });
 
-  // load by place
-  app.get("/place/:id", function (req, res) {
-    res.json("place: " + req.params.place);
-    // db.Place.findOne({ where: { id: req.params.id } }).then(function(result) {
-    //   res.render("place", {
-    //     example: result
-    //   });
-    // });
-  });
-
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {
     res.render("404");
@@ -132,14 +117,19 @@ module.exports = function (app) {
 
   // create review
   app.post("/review", function (req, res) {
-    req.json("review added");
-    // var review = req.body;
+    var review = req.body;
 
-    // db.Review.create({
-    //   exampleOne: review.exampleOne
-    // }).then(function (result) {
-    //   res.redirect('back');
-    // });
+    db.Review.create({
+      rating: review.rating,
+      comments: review.comments,
+      PlaceId: review.PlaceId,
+      UserId: review.UserId
+    }).then(function (result) {
+      res.redirect('back');
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
   });
 
   // create user

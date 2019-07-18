@@ -19,6 +19,7 @@ var newPlaceZip = $("#place-zipcode");
 var newPlaceSummary = $("#place-summary");
 var newPlaceServices = $("#place-services");
 var newPlaceWebsite = $("#place-link");
+var newRatingComment = $("#user-comment");
 
 // OBJECTS
 var myUser = {
@@ -76,6 +77,9 @@ var myUser = {
 
 // run this code when we load the page
 $(function () {
+    $('#review-table').DataTable();
+    $('#places-table').DataTable();
+
     var $dropdownItem = $('.dropdown-item');
 
     $dropdownItem.on('click', function () {
@@ -139,7 +143,7 @@ $(function () {
             external_link: newPlaceWebsite.val().trim()
         };
 
-        // Send the Post request to village_db
+        // Send the Post request to village_db Places Table
         $.ajax("/place", {
             type: "POST",
             data: newPlace
@@ -150,7 +154,33 @@ $(function () {
                 location.reload();
             }
         )
-    })
+    });
+
+    /**
+     * On-Click event to submit a new review 
+     * to the database
+     */
+    $("#review-submit").on("click", function (event) {
+        event.preventDefault(); //TODO: Remove after functioning
+        var newReview = {
+            rating: parseInt($("input[name='rating']:checked").val()),
+            comments: newRatingComment.val().trim(),
+            PlaceId: $("#review-btn").val(),
+            UserId: 1 //need to not default this
+        }
+
+        // Send the post request to village_db Reviews Table
+        $.ajax("/review", {
+            type: "POST",
+            data: newReview
+        }).then(
+            function() {
+                console.log("created new review");
+                // Reload the review to get updated list
+                location.reload();
+            }
+        )
+    });
 
     /**
      * On-Click event to grab place information
