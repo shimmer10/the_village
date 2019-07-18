@@ -186,10 +186,9 @@ $(function () {
      * On-Click event to grab place information
      * and open place page
      */
-    $(".table-row").on("click", function (event) {
+    $(".view-button").on("click", function (event) {
         event.preventDefault();
-
-        console.log("ID? " + $(".table #table-body .table-row").data("value"));
+        var id = $(this).data("value")
     })
 });
 
