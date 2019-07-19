@@ -41,18 +41,18 @@
           <a href="{{place.external_link}}">{{place.external_link}}</a>
         </div>
       </div>
+      <div class="mb-3">
+        <h6>Location Summary</h6>
+        <p>{{place.summary}}</p>
+      </div>
+      <div class="mb-3">
+        <h6>Description of Services</h6>
+        <p>{{place.services}}</p>
+      </div>
     </div>
-  </section>
-  <section class="row mb-3">
     <div class="col m6">
-      <h6>Location Summary</h6>
-      <p>{{place.summary}}</p>
-    </div>
-  </section>
-  <section class="row mb-3">
-    <div class="col m6">
-      <h6>Description of Services</h6>
-      <p>{{place.services}}</p>
+      <div class="mt-4" id="place-image">
+      </div>
     </div>
   </section>
 
@@ -74,7 +74,7 @@
           {{#each reviews}}
           <tr class="review-item table entry">
             <td>{{this.comments}}</td>
-            <td>{{this.rating}}</td>
+            <td>{{this.rating}} Stars</td>
           </tr>
           {{/each}}
         </tbody>
