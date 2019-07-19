@@ -152,7 +152,7 @@ module.exports = function (app) {
           user_name: req.body.username,
           email_address: req.body.email,
         }).then(function (dbUserCreateResult) {
-          res.status(200).end(okResponse);
+          res.status(200).end(dbUserCreateResult.dataValues.id.toString());
         })
           .catch(function (err) {
             // Whenever a validation or flag fails, an error is thrown
