@@ -9,7 +9,7 @@
   background: url("../images/granite.jpg"); 
 
   /* background: url("../images/light_honeycomb_@2X.png"); */
-  background: url("../images/brown-carpentry.jpg"); 5
+  /* background: url("../images/brown-carpentry.jpg");  */
   /* background: url("../images/old-wood.jpg"); */
   /* background: url("../images/pine-floor.jpg"); */
   background-attachment: fixed;
@@ -232,4 +232,12 @@ footer {
 #place-page {
   background: url("../images/textured_paper.png");
   background-attachment: fixed;
+}
+
+.place-img {
+  width: 300px;
+  height: 300px;
+  margin: auto;    
+  display: block;
+  border: 3px solid rgb(28, 110, 164); 
 }

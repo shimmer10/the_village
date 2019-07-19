@@ -89,6 +89,14 @@ $(function () {
 
     var $dropdownItem = $('.dropdown-item');
 
+    //Creat eRandom Image for the Place page
+    var imageNumber = Math.floor(Math.random() * 10) + 1;
+    var image = $("<img>");
+    image.addClass("place-img");
+    image.attr("src", "/images/page_" + imageNumber + ".jpg");
+    image.attr("alt", "Autism Awareness Image " + imageNumber);
+    $("#place-image").append(image);
+
     $dropdownItem.on('click', function () {
         console.log($(this).attr('data-id'))
     });
@@ -136,6 +144,7 @@ $(function () {
      * to the database
      */
     $("#place-submit").on("click", function (event) {
+        event.preventDefault(); 
 
         var newPlace = {
             category: newPlaceCategory.val().trim(),
@@ -168,7 +177,7 @@ $(function () {
      * to the database
      */
     $("#review-submit").on("click", function (event) {
-        event.preventDefault(); //TODO: Remove after functioning
+        event.preventDefault();
         var newReview = {
             rating: parseInt($("input[name='rating']:checked").val()),
             comments: newRatingComment.val().trim(),
