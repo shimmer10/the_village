@@ -6,8 +6,17 @@
  * 2019-07-13
  ********************************/
  body {
-  background: url("../images/light_honeycomb_@2X.png");
+  /* background: url("../images/light_honeycomb_@2X.png"); */
+  /* background: url("../images/brown-carpentry.jpg"); 5*/
+  background: url("../images/granite.jpg"); 
+  /* background: url("../images/old-wood.jpg"); 6*/
+  /* background: url("../images/pine-floor.jpg"); 6*/
+  /* background: url("../images/white-brick.jpg"); 7*/
+  /* background: url("../images/attractive-backdrop.jpg"); 5*/
+  background-attachment: fixed;
+  background-size: cover;
 }
+
  .navbar-brand {
   width: 400px;
   height: 90px;
@@ -19,7 +28,8 @@
   text-decoration: none;
   background: #6fa4a3;
   color: #ffffff !important;
-  background-color: #6d9df0;
+  background-color: rgb(28, 110, 164);
+  /* background-color: #6d9df0; */
 }
 
 .dropdown-menu {
@@ -138,22 +148,51 @@ footer {
   text-align: center;
   background: #666666;
   /*  bjt border-top: 8px solid #4aaaa5; */
-  border-top:10px solid #6d9df0;
-  border-bottom: 10px solid #6d9df0;
+  /* border-top:10px solid #6d9df0;
+  border-bottom: 10px solid #6d9df0; */
+  border-top:10px solid rgb(28, 110, 164);
+  border-bottom: 10px solid rgb(28, 110, 164);
   margin-top: 20px;
   height: 50px;
 }
 
 .btn {
-  padding: 14px 24px;
+  /* padding: 14px 24px;
   border: 0 none;
   font-weight: 700;
   letter-spacing: 1px;
+  text-transform: uppercase; */
+
+  margin: 0 5px;
+  color: rgb(255, 255, 255); 
+  font-size: 16px; 
+  line-height: 16px; 
+  padding: 6px; 
+  border-radius: 10px; 
+  font-family: Georgia, serif; 
+  font-weight: normal; 
+  text-decoration: none; 
+  font-style: normal; 
+  font-variant: normal; 
   text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
 }
 
 .btn:focus, .btn:active:focus, .btn.active:focus {
   outline: 0 none;
+}
+
+.btn-toform {
+  background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%);
+  border: 2px solid rgb(28, 110, 164); 
+  width: 100px; 
+}
+
+.btn-table {
+  background-image: linear-gradient(to right, rgb(124, 122, 122) 0%, rgb(167, 165, 165) 50%, grey 100%); 
+  border: 2px solid rgb(124, 122, 122)
+  /* width: 100px;  */
 }
 
 .btn-primary {
@@ -174,8 +213,29 @@ footer {
 	box-shadow: 0 3px 0 0 #007299;
 }
 .btn-primary.raised:active, .btn-primary.raised.active {
-	background: #33a6cc;
+  background: #33a6cc;
 	box-shadow: none;
 	margin-bottom: -3px;
   margin-top: 3px;
+}
+
+.table-header {
+  background-color: rgb(35, 136, 203);
+  color: #ffffff;
+}
+
+.table-body {
+  background-color: rgb(175,210,229);
+}
+
+#search-page {
+  background: url("../images/textured_paper.png"); 
+  background-attachment: fixed;
+  /* background-size: cover; */
+}
+
+#place-page {
+  background: url("../images/textured_paper.png");
+  background-attachment: fixed;
+  /* background-size: cover; */
 }
