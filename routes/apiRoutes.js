@@ -34,7 +34,7 @@ module.exports = function (app) {
       });
   });
 
-  // load place page -- TEMPORARY
+  // load place page
   app.get("/place/:id", function (req, res) {
     db.Place.findOne({
       where: {

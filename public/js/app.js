@@ -187,8 +187,9 @@ $(function () {
      * and open place page
      */
     $(".view-button").on("click", function (event) {
-        event.preventDefault();
         var id = $(this).data("value")
+        var route = "/place/" + id;
+        window.location.href=route;
     })
 });
 
