@@ -55,7 +55,8 @@ module.exports = function (sequelize, DataTypes) {
 
     Place.associate = function (models) {
         Place.hasMany(models.Review, {
-            onDelete: "cascade"
+            onDelete: "cascade",
+            hooks: true
         });
     };
 
