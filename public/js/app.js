@@ -26,6 +26,7 @@ var myUser = {
     username: "",
     email: "",
     isRegistered: false,
+    userId: 0,
 
     responseOk: 'ok',
     responseAlreadyRegistered: "already registered",
@@ -33,11 +34,9 @@ var myUser = {
 
     register: function (un, em) {
 
-
         // validate (todo)
 
         // send post request to server
-
         var data = {
             username: un,
             email: em,
@@ -52,17 +51,25 @@ var myUser = {
                     case this.responseDuplicateEmail:
                         alert("This email " + em + " is already in use by another user. Please try again");
                         break;
-                    case this.responseOk:
                     case this.responseAlreadyRegistered:
                         // store for now
                         this.username = un;
                         this.email = em;
-                        this.isRegistered = true;
                         // this is probably temporary until we decide how to handle the user
-                        alert("Welcome to the Village: " + un);
+                        alert("Welcome back to the Village: " + un);
                         break;
                     default:
-                        alert(response);
+                        if (isNaN(parseInt(response))) {
+                            alert(response);
+                        } else {
+                            // store username, email, isRegistered, and id.
+                            this.username = un;
+                            this.email = em;
+                            this.isRegistered = true;
+                            // this is probably temporary until we decide how to handle the user
+                            alert("Welcome to the Village: " + un);
+                            this.UserId = parseInt(response);
+                        }
                         break;
                 }
             }
@@ -167,6 +174,8 @@ $(function () {
             comments: newRatingComment.val().trim(),
             PlaceId: $("#review-btn").val(),
             UserId: 1 //need to not default this
+            // UserId: myUser.userId
+
         }
 
         // Send the post request to village_db Reviews Table
@@ -189,7 +198,7 @@ $(function () {
     $(".view-button").on("click", function (event) {
         var id = $(this).data("value")
         var route = "/place/" + id;
-        window.location.href=route;
+        window.location.href = route;
     })
 
     /**
