@@ -184,13 +184,14 @@
     </div>
     <div class='table-responsive'>
         <table class="table table-striped stencil-font bigger-font" id="places-table">
-            <thead class="thead-dark">
+            <thead>
                 <tr>
                     <th scope="col">Category</th>
                     <th scope="col">Place Name</th>
                     <th scope="col">City</th>
                     <th scope="col">State</th>
                     <th scope="col">View</th>
+                    <th scope="col">Delete</th>
                 </tr>
             </thead>
             <tbody id="table-body">
@@ -201,6 +202,7 @@
                     <td>{{city}}</td>
                     <td>{{jurisdiction}}</td>
                     <td class="align-middle"><button class="btn btn-primary view-button" data-value="{{id}}">View</button></td>
+                    <td class="align-middle"><button class="btn btn-primary delete-button" data-value="{{id}}">&times;</button></td>
                 </tr>
                 {{/each}}
             </tbody>

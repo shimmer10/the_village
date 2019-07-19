@@ -127,9 +127,9 @@ module.exports = function (app) {
     }).then(function (result) {
       res.redirect('back');
     })
-    .catch(function (err) {
-      console.log(err);
-    });
+      .catch(function (err) {
+        console.log(err);
+      });
   });
 
   // create user
@@ -178,13 +178,17 @@ module.exports = function (app) {
 
   // delete place
   app.delete("/place/:id", function (req, res) {
-    // db.Place.destroy({
-    //   where: {
-    //     id: req.params.id
-    //   }
-    // }).then(function (result) {
-    //   res.json(result);
-    // })
+    db.Place.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function (result) {
+      if (result.affectedRows == 0) {
+        return res.status(404).end();
+      } else {
+        res.status(200).end();
+      }
+    })
   });
 
   // delete review
