@@ -148,7 +148,7 @@ $(function () {
             type: "POST",
             data: newPlace
         }).then(
-            function() {
+            function () {
                 console.log("created new place");
                 // Reload the place to get the updated list
                 location.reload();
@@ -174,7 +174,7 @@ $(function () {
             type: "POST",
             data: newReview
         }).then(
-            function() {
+            function () {
                 console.log("created new review");
                 // Reload the review to get updated list
                 location.reload();
@@ -190,6 +190,21 @@ $(function () {
         var id = $(this).data("value")
         var route = "/place/" + id;
         window.location.href=route;
+    })
+
+    /**
+     * On-Click event to delete a row from the table
+     */
+    $(".delete-button").on("click", function (event) {
+        event.preventDefault();
+        var id = $(this).data("value")
+        $.ajax("/place/" + id, {
+            type: "DELETE"
+        }).then(
+            function () {
+                location.reload();
+            }
+        );
     })
 });
 
