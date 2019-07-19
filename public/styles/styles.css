@@ -6,13 +6,12 @@
  * 2019-07-13
  ********************************/
  body {
-  /* background: url("../images/light_honeycomb_@2X.png"); */
-  /* background: url("../images/brown-carpentry.jpg"); 5*/
   background: url("../images/granite.jpg"); 
-  /* background: url("../images/old-wood.jpg"); 6*/
-  /* background: url("../images/pine-floor.jpg"); 6*/
-  /* background: url("../images/white-brick.jpg"); 7*/
-  /* background: url("../images/attractive-backdrop.jpg"); 5*/
+
+  /* background: url("../images/light_honeycomb_@2X.png"); */
+  background: url("../images/brown-carpentry.jpg"); 5
+  /* background: url("../images/old-wood.jpg"); */
+  /* background: url("../images/pine-floor.jpg"); */
   background-attachment: fixed;
   background-size: cover;
 }
@@ -29,7 +28,6 @@
   background: #6fa4a3;
   color: #ffffff !important;
   background-color: rgb(28, 110, 164);
-  /* background-color: #6d9df0; */
 }
 
 .dropdown-menu {
@@ -75,7 +73,6 @@
 .modal-content {
   padding: 15px;
   font-weight: bold;
-  /* background-image: url(../images/ep_naturalwhite.png); */
   background-image: url(../images/textured_paper.png);
   background-attachment: fixed;
 }
@@ -183,7 +180,7 @@ footer {
   outline: 0 none;
 }
 
-.btn-toform {
+.btn-form {
   background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%);
   border: 2px solid rgb(28, 110, 164); 
   width: 100px; 
@@ -191,8 +188,7 @@ footer {
 
 .btn-table {
   background-image: linear-gradient(to right, rgb(124, 122, 122) 0%, rgb(167, 165, 165) 50%, grey 100%); 
-  border: 2px solid rgb(124, 122, 122)
-  /* width: 100px;  */
+  border: 2px solid rgb(124, 122, 122);
 }
 
 .btn-primary {
@@ -231,11 +227,9 @@ footer {
 #search-page {
   background: url("../images/textured_paper.png"); 
   background-attachment: fixed;
-  /* background-size: cover; */
 }
 
 #place-page {
   background: url("../images/textured_paper.png");
   background-attachment: fixed;
-  /* background-size: cover; */
 }
