@@ -22,7 +22,8 @@ module.exports = function (sequelize, DataTypes) {
 
     User.associate = function (models) {
         User.hasMany(models.Review, {
-            onDelete: "cascade"
+            onDelete: "cascade",
+            hooks: true
         });
     };
 
