@@ -23,13 +23,6 @@ var newRatingComment = $("#user-comment");
 
 // OBJECTS
 var myUser = {
-    username: "",
-    email: "",
-    isRegistered: false,
-    userId: 0,
-
-    responseOk: 'ok',
-    responseAlreadyRegistered: "already registered",
     responseDuplicateEmail: "duplicate email",
 
     register: function (un, em) {
@@ -51,24 +44,19 @@ var myUser = {
                     case this.responseDuplicateEmail:
                         alert("This email " + em + " is already in use by another user. Please try again");
                         break;
-                    case this.responseAlreadyRegistered:
-                        // store for now
-                        this.username = un;
-                        this.email = em;
-                        // this is probably temporary until we decide how to handle the user
-                        alert("Welcome back to the Village: " + un);
-                        break;
                     default:
                         if (isNaN(parseInt(response))) {
                             alert(response);
                         } else {
                             // store username, email, isRegistered, and id.
-                            this.username = un;
-                            this.email = em;
-                            this.isRegistered = true;
+                            localStorage.clear();
+                            localStorage.setItem('userId', response);
+                            localStorage.setItem('username', un);
+                            localStorage.setItem('email', em);
+                            localStorage.setItem('isRegistered', true);
+
                             // this is probably temporary until we decide how to handle the user
                             alert("Welcome to the Village: " + un);
-                            this.UserId = parseInt(response);
                         }
                         break;
                 }
@@ -182,8 +170,7 @@ $(function () {
             rating: parseInt($("input[name='rating']:checked").val()),
             comments: newRatingComment.val().trim(),
             PlaceId: $("#review-btn").val(),
-            UserId: 1 //need to not default this
-            // UserId: myUser.userId
+            UserId: localStorage.getItem('userId')
 
         }
 

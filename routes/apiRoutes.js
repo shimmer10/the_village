@@ -170,8 +170,14 @@ module.exports = function (app) {
           });
       } else {
         // User already exists just respond with ok
-        console.log("User " + req.body.username + " " + req.body.email + " already in Database");
-        res.status(200).end(alreadyRegResponse);
+        db.User.findOne({
+          where: {
+            user_name: req.body.username,
+            email_address: req.body.email,
+          }
+        }).then(function (userResult) {
+          res.status(200).end(userResult.dataValues.id.toString());
+        });
       }
     })
   });
