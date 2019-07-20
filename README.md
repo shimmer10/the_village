@@ -4,7 +4,7 @@
 ## **This includes people creating user profiles and being able to add reviews to the places/business to share their experience**
 ## Developers: Brenda, Jenn, Pete, Sean
 
-## **Link to Heroku deployed site: https://the-villiage-1.herokuapp.com/**
+## **Link to Heroku deployed site: https://the-village-1.herokuapp.com/**
 
 ### **The site opens at the start page with '/'**
     * The page renders the home page with a carousel of images related to autism
