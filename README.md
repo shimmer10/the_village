@@ -1,8 +1,8 @@
-# the_villiage
+# the_village
 
 ## **The Village is a site designed to allow people with autistic children to add information on Business that work well with kids with autism**
 ## **This includes people creating user profiles and being able to add reviews to the places/business to share their experience**
-## Developers: Brenda, Jenn, Pete, Sean
+## Developers: The Village People (Brenda, Jenn, Pete, Sean)
 
 ## **Link to Heroku deployed site: https://the-village-1.herokuapp.com/**
 
